@@ -67,8 +67,7 @@ td {
 }
 
 
-#Container{
-    height: 100%; 
+#Container{ 
     padding:20px;
     background: #eee;
 }
@@ -111,16 +110,18 @@ td {
     background: #fff;
     border-top: 0px;
     padding:20px;
+    margin-bottom: 20px;
 }
 table{
     width: 100%;
     border-spacing: 0px;
     border-collapse: separate;
     margin-top: 25px;
+    border: 1px #bdbdbd solid;
 }
 table tr th{ 
     padding: 5px;    
-    border-bottom: 1px solid #5c5c5c; 
+    border-bottom:1px solid #8e8e8e; 
     font-weight: normal;
     font-size: 1.05rem;
     font-weight: 500;
@@ -129,12 +130,13 @@ table tr th:last-child,table tr td:last-child{
     text-align: center;;
 }
 table tr td{
-    padding: 3px;   
+    padding: 5px;   
     border-top: 1px solid #ABB2B9; 
     font-size: 13px;
+
 }
 table tr:last-child td{
-    border-bottom: 1px solid #ABB2B9; 
+    border-bottom: 1px solid #e0e0e0; 
 }
 
 h2.pageher{
@@ -177,4 +179,57 @@ h2.pageher{
 }
 .fright{
     float: right;
+}
+.pbtn{
+    cursor: pointer;
+    border: none;
+    color: #ffffff; 
+    background: #FF5733; 
+    padding: 5px 10px;
+    display: inline-block;
+    text-decoration: none;
+    border-radius: 6px ;
+    border-bottom: 2px #FF5733 solid;
+    font-weight: 450;
+}
+.pbtn:hover{
+    color: #ffffff;
+    text-decoration: none;
+    background: #ff2d00;
+}
+a i.fa{
+    padding-left: 10px;
+    font-size: 400;
+}
+.pbtn.pbtn-2x{
+    padding-left: 30px;
+    padding-right: 30px;
+    
+}
+#foot{
+    padding: 20px;
+    color: #999999;
+    text-align: center;
+}
+#foot b{
+    color: #ff2d00;
+    
+}
+#TableFooter{
+    background: #EEEEEE;
+    padding-left: 5px;  
+    border: 1px #bdbdbd solid; 
+}
+#TableFooter label{ 
+}
+
+.form-rule{
+    display: flex;
+    flex-direction: row;
+}
+.form-rule > div{
+     
+}
+#OrderYear{
+    padding-right: 10px;
 }

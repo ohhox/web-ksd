@@ -1,17 +1,18 @@
 
 <div class="fright">
-    <?= getLink('order/form', '<i class="fas fa-plus"></i> Create Order','','button button-glow button-border button-small button-primary') ?> 
+    <?= getLink('order/form', 'Create Order <i class="fa fa-plus"></i> ', '', 'pbtn'); //button button-glow button-border button-small button-primary?> 
 </div>
-<div className="form-rule">
-    <div className="form-group">
+
+<div class="form-rule">
+    <div id="OrderYear">
         <label>Year</label>
         <input type="text" name=""/>
-        <i className="far fa-calendar-alt"></i>
+      <i class="far fa-calendar-alt"></i>
 
     </div>
-    <div className="form-group">
-        <label>Order Status</label>
-        <select>
+    <div  >
+        <label >Order Status</label>
+        <select >
             <option>Actual</option>
         </select>
 
@@ -59,13 +60,18 @@
                     <td><?= $value->UnitName ?></td>
                     <td> 
                         <?= getLink('order/form/' . $value->oid, "edit") ?> 
-                          <?= getLink('order/delete/' . $value->oid, "remvoe") ?> 
+                        <?= getLink('order/delete/' . $value->oid, "remvoe") ?> 
                     </td>
                 </tr>
-            <?php
+                <?php
             }
         }
         ?>
 
     </tbody>
 </table>
+
+<div id="TableFooter">
+    <label> All : <?= count($this->data) ?> </label>
+    <label> Page : 1 / 1 </label>      
+</div>

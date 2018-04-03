@@ -8,7 +8,7 @@
         <link type="text/css" href="<?= URL ?>public/css/buttons.css" rel="stylesheet">
         <link type="text/css" href="<?= URL ?>public/css/fontawesome/css/fontawesome-all.min.css" rel="stylesheet">
         <link type="text/css" href="<?= URL ?>public/css/main.css" rel="stylesheet">
-        <link type="text/css" href="<?= URL ?>public/js/chosen/chosen.css" rel="stylesheet">
+        <link type="text/css" href="<?= URL ?>public/js/selectize.js/css/selectize.bootstrap3.css" rel="stylesheet">
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 
 
