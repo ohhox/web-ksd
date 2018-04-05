@@ -9,7 +9,7 @@ class orders_model extends Model {
     }
 
     public function getOrder() {
-        $sql = "SELECT o.oid,o.ProductCode,Remark,Revision,OrderQty,CustomerName,FactoryTypeName,Holdername,ProductName,ProductTypeName,SrickName,UnitName,TrayName FROM Orders AS o"
+        $sql = "SELECT o.oid,o.ProductCode,Remark,Revision,OrderQty,c.ShortName AS CustomerName,FactoryTypeName,Holdername,p.ShortName AS ProductName,ProductTypeName,SrickName,UnitName,TrayName FROM Orders AS o"
                 . " LEFT JOIN Customers AS c ON c.oid = o.CustomerOid "
                 . " LEFT JOIN FactoryTypes AS f ON f.oid = o.FactoryTypeOid "
                 . " LEFT JOIN Holders AS h ON h.oid = o.HolderOid "
