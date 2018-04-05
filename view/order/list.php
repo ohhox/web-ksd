@@ -7,7 +7,7 @@
     <div id="OrderYear">
         <label>Year</label>
         <input type="text" name=""/>
-      <i class="far fa-calendar-alt"></i>
+        <i class="far fa-calendar-alt"></i>
 
     </div>
     <div  >
@@ -27,6 +27,7 @@
 <table>
     <thead>
         <tr>
+            <th>#</th>
             <th>Customers</th>
             <th>Product Type</th>
             <th>Product</th>
@@ -44,9 +45,11 @@
     <tbody>
         <?php
         if (!empty($this->data)) {
+            $i = 1;
             foreach ($this->data as $key => $value) {
                 ?>
                 <tr key={key}>
+                    <td><?= $i++ ?></td>
                     <td><?= $value->CustomerName ?></td>
                     <td><?= $value->ProductTypeName ?></td>
                     <td><?= $value->ProductName ?></td>
@@ -60,7 +63,7 @@
                     <td><?= $value->UnitName ?></td>
                     <td> 
                         <?= getLink('order/form/' . $value->oid, "edit") ?> 
-                        <?= getLink('order/delete/' . $value->oid, "remvoe") ?> 
+                        <?= getLink('order/delete/' . $value->oid, "remvoe ",'','RemoveItems') ?> 
                     </td>
                 </tr>
                 <?php

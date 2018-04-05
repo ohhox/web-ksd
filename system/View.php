@@ -10,6 +10,7 @@ class View {
     );
     public $viewMessage = "";
     public $pageActive = "home";
+    public $pageTiitle = "KSD ";
 
     function __construct() {
         

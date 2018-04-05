@@ -28,7 +28,7 @@ html,body{
     color: #282828; 
     white-space: nowrap;
     -webkit-overflow-scrolling: touch; 
-    background: #EAEDED;
+    background: #eeeeee ;
     font-size: 14px; 
     word-wrap: break-word; /* Internet Explorer 5.5+ */
 }	
@@ -38,38 +38,69 @@ table{
 td {   
     word-wrap: break-word; /* Internet Explorer 5.5+ */
 }
-#header{ 
-    text-align: center;
-    border-bottom: 1px solid #d6d6d6;
-    display: grid;
-    grid-template-columns: 0fr 2fr 0fr;  
-    background: #fff;
+#header{   
+    width: 100%; 
+    padding: 0px;
+    border-bottom: 1px solid #FF5733;
+    padding-right: 30px;
+}
+#Menu{
+    margin: 0px;
+    margin-top: 10px;
+    padding-left: 10px;
+    list-style: none;
 
 }
-#header div{
+#Menu li a{
+    color: #000000;
+    font-size: 1.1rem;
+    display: block;
+}
+#Menu li a.active{
+    border-bottom: 1px #FF5733 solid;
+    color: #FF5733;
+    font-weight: 500;
+}
+#header div{     
+    float: right; 
     padding: 5px;
 }
-#header div#SystemLogo{ 
-    width: 250px;
+div#SystemLogo{ 
+
+    height: 31px;
     font-weight: 600;
+    font-size: 1.5rem; 
+    padding: 10px;
+
 }
-#header div#SystemLogo a{	
+div#SystemLogo a{	
     text-decoration: none;
     color: #FF5733;
+    display: block;
 }
-#header  div#UserLoginInfo{
+div#UserLoginInfo{
     font-size: 14px;
     text-align: right;
 }
-#header  div#UserLoginInfo a.Logout{
+div#UserLoginInfo a.Logout{
     color: red;	
     text-decoration: none;
 }
 
+#LeftMenu{ 
+    top: 0px; 
+    width: 200px;
+    position: fixed;
+    left: 0px;
+    min-height: 100%;
+    border-right: 1px #BDC3C7 solid;
+}
+
 
 #Container{ 
-    padding:20px;
+    margin-left: 200px;
     background: #eee;
+    min-height: 100%;
 }
 
 #TapMain{ 
@@ -106,18 +137,18 @@ td {
 
 #Content{
     min-height: 500px;
-    border: 1px #BDC3C7 solid; 
+
     background: #fff;
     border-top: 0px;
     padding:20px;
-    margin-bottom: 20px;
+    margin-bottom: 20px; 
 }
 table{
     width: 100%;
     border-spacing: 0px;
     border-collapse: separate;
-    margin-top: 25px;
-    border: 1px #bdbdbd solid;
+    margin-top: 25px; 
+    color: #000;
 }
 table tr th{ 
     padding: 5px;    
@@ -204,7 +235,7 @@ a i.fa{
 .pbtn.pbtn-2x{
     padding-left: 30px;
     padding-right: 30px;
-    
+
 }
 #foot{
     padding: 20px;
@@ -213,12 +244,13 @@ a i.fa{
 }
 #foot b{
     color: #ff2d00;
-    
+
 }
 #TableFooter{
     background: #EEEEEE;
     padding-left: 5px;  
     border: 1px #bdbdbd solid; 
+    width: 100%;
 }
 #TableFooter label{ 
 }
@@ -228,8 +260,48 @@ a i.fa{
     flex-direction: row;
 }
 .form-rule > div{
-     
+
 }
 #OrderYear{
     padding-right: 10px;
+}
+
+#LinkToMant ul{
+    list-style: none;
+    margin: 0px;
+    padding: 0px;
+} 
+#LinkToMant ul li{
+    float: left;
+}
+#LinkToMant ul li a{
+    display: block;
+    padding: 5px; 
+    text-decoration: none;
+    margin-right: 5px;
+    color: #000000;
+    transition: all 0.1s ease-out;
+}
+#LinkToMant ul li a:hover{
+    border-bottom: 2px solid #FF5733; 
+}
+#LinkToMant ul li a.active{
+    border-bottom: 2px solid #FF5733; 
+}
+
+#masterData{
+    display: flex;
+    width: 100%; 
+    
+}
+
+#masterData>div{
+    flex: 1;
+}
+.pageheader{
+    padding: 0;
+    padding: 0;
+}
+.pull-right{
+    float: right;
 }

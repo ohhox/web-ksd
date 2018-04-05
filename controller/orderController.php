@@ -13,6 +13,7 @@ class order extends Controller {
     public function index() {
 
         $this->data = $this->model->getOrder();
+        $this->pageTiitle = "Order List";
         $this->view('order/list');
     }
 
@@ -30,7 +31,6 @@ class order extends Controller {
             }
             Go(URL . 'order');
         }
-
         $array['customer'] = $this->model->_getTable('customers');
         $array['Producttype'] = $this->model->_getTable('Producttypes');
         $array['Product'] = $this->model->_getTable('Products');
@@ -41,6 +41,7 @@ class order extends Controller {
         $array['Unit'] = $this->model->_getTable('Units');
 
         $this->data['option'] = $array;
+        $this->pageTiitle = "Order Form";
         if (!empty($id)) {
             $order = $this->model->one_query('orders', "oid=$id");
             if (!empty($order)) {
@@ -53,9 +54,10 @@ class order extends Controller {
     }
 
     public function delete($id) {
-        if(!empty($id)){
-           
+        if (!empty($id)) {
+            $this->model->delete($id);
         }
+        Go(URL . 'order');
     }
 
 }
