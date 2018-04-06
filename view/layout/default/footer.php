@@ -19,7 +19,7 @@
             }
         });
     });
-    $('.datepicker').datepicker();
+  
 <?php
 if (!empty($this->dataid)) {
     ?>
