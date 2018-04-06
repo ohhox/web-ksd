@@ -20,8 +20,8 @@
             <ul id="Menu">
                 <li><a href="<?= URL ?>" class="<?= $this->pageActive == 'home' ? "active" : '' ?>" id="PageHome">Home</a></li>
                 <li><a href="<?= URL ?>order" id="PageOrder"  class="<?= $this->pageActive == 'order' ? "active" : '' ?>">+ Order</a></li>
-                <li><a href="#"  class="<?= $this->pageActive == 'homex' ? "active" : '' ?>">Order Status</a></li>
-                <li><a href="#"   class="<?= $this->pageActive == 'homxe' ? "active" : '' ?>">Shipment</a></li>
+                <li><a href="<?= URL ?>order/status"  class="<?= $this->pageActive == 'status' ? "active" : '' ?>">Order Status</a></li>
+                <li><a href="<?= URL ?>shipment/"   class="<?= $this->pageActive == 'shipment' ? "active" : '' ?>">Shipment</a></li>
                 <li><a href="<?= URL ?>masterdata"  class="<?= $this->pageActive == 'masterdata' ? "active" : '' ?>">Master Data</a></li>
                 <li><a href="#"  class="<?= $this->pageActive == 'homxe' ? "active" : '' ?>">Reporting</a></li>
             </ul>

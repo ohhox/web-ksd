@@ -6,7 +6,7 @@
 <div class="form-rule">
     <div id="OrderYear">
         <label>Year</label>
-        <input type="text" name=""/>
+        <input type="text" name="" class="datepicker"/>
         <i class="far fa-calendar-alt"></i>
 
     </div>
@@ -14,6 +14,13 @@
         <label >Order Status</label>
         <select >
             <option>Actual</option>
+        </select>
+
+    </div>
+    <div  >
+        <label > Manufaturing</label>
+        <select >
+            <option> BOI</option>
         </select>
 
     </div>
@@ -30,9 +37,9 @@
             <th>#</th>
             <th>Customers</th>
             <th>Product Type</th>
-            <th>Product</th>
-            <th>Product Code</th>
+            <th>Product Name</th> 
             <th>Factory Type</th>
+             <th>Remark</th>
             <th>Revision</th>
             <th>Stick</th>
             <th>Holder</th>
@@ -52,9 +59,9 @@
                     <td><?= $i++ ?></td>
                     <td><?= $value->CustomerName ?></td>
                     <td><?= $value->ProductTypeName ?></td>
-                    <td><?= $value->ProductName ?></td>
-                    <td><?= $value->ProductCode ?></td>
+                    <td><?= $value->ProductName ?></td> 
                     <td><?= $value->FactoryTypeName ?></td>
+                    <td><?= $value->Remark ?></td>
                     <td><?= $value->Revision ?></td>
                     <td><?= $value->SrickName ?></td>
                     <td><?= $value->Holdername ?></td>

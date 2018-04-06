@@ -13,13 +13,13 @@
 
     $(function () {
         $("select.pugin").selectize();
-        $(".RemoveItems").on('click',function (e) {
+        $(".RemoveItems").on('click', function (e) {
             if (!confirm('Confirm To Remove This Item.')) {
                 e.preventDefault();
             }
         });
     });
-
+    $('.datepicker').datepicker();
 <?php
 if (!empty($this->dataid)) {
     ?>

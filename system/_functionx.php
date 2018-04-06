@@ -92,7 +92,7 @@ class functiomx {
                 )
             )
         ),
-         'Products' => array(
+        'Products' => array(
             'table_name' => 'Products',
             'table_Description' => "Products",
             'pk' => 'oid',
@@ -148,14 +148,14 @@ class functiomx {
                     'field_name' => "TrayCode",
                     'field_Description' => 'Tray Code',
                     'field_type' => 'input',
-                    'required' => 'required',                    
+                    'required' => 'required',
                 ),
                 '2' => array(
                     'field_name' => "TrayName",
                     'field_Description' => 'Tray Name',
                     'field_type' => 'input',
                     'required' => 'required'
-                ) 
+                )
             )
         ),
         'Units' => array(
@@ -168,7 +168,7 @@ class functiomx {
                     'field_name' => "UnitCode",
                     'field_Description' => 'Unit Code',
                     'field_type' => 'input',
-                    'required' => 'required'                    
+                    'required' => 'required'
                 ),
                 '2' => array(
                     'field_name' => "UnitName",
@@ -177,14 +177,15 @@ class functiomx {
                     'required' => 'required'
                 )
             )
-        ) 
+        )
     );
 
     public function getOrder() {
         
     }
 
-    public function COUNTREF(){
+    public function COUNTREF() {
         return "";
     }
+
 }

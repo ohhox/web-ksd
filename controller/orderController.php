@@ -59,5 +59,10 @@ class order extends Controller {
         }
         Go(URL . 'order');
     }
+    public function status() {
+        $this->pageTiitle = "Order Status";
+        $this->pageActive = "status";
+        $this->view('order/status');
+    }
 
 }
