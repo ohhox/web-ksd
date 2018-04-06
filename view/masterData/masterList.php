@@ -64,9 +64,8 @@
                             <tr>
                                 <td><?= $i++ ?></td>
                                 <?php
-                                $field_name = $v['field_name'];
-                                
                                 foreach ($table['field'] as $k => $v) {
+                                    $field_name = $v['field_name'];
                                     echo "<td>{$value->$field_name}</td>";
                                 }
                                 ?>
@@ -75,9 +74,9 @@
                                     <a class="btn  btn-xs btn-danger text-white RemoveItems" href="<?= URL ?>masterdata/d/<?= $this->dataid ?>/<?= $value->oid; ?>">ลบ</a>
                                 </td>
                             </tr>
-                            <?php
-                        }
-                        ?>
+        <?php
+    }
+    ?>
                     </tbody>
                 </table>
             </div>
@@ -95,14 +94,14 @@
                     <div class="modal-body">
                         <form  method="post" id="formSubmit"> 
 
-                            <?php
-                            foreach ($table['field'] as $key => $value) {
-                                ?>
+    <?php
+    foreach ($table['field'] as $key => $value) {
+        ?>
                                 <div class="form-group">
                                     <label><?= $value['field_Description'] ?> <?php if (!empty($value['comment'])) { ?><div> <code>(<?= $value['comment'] ?>)</code></div> <?php } ?></label>
-                                    <?php
-                                    if ($value['field_type'] == 'input') {
-                                        ?>
+        <?php
+        if ($value['field_type'] == 'input') {
+            ?>
                                         <input type="text"  id="<?= $value['field_name'] ?>" name="<?= $value['field_name'] ?>" <?= $value['required'] ?>  placeholder="<?= $value['field_Description'] ?>"  class="form-control">
                                     <?php } else {
                                         ?>
@@ -111,9 +110,9 @@
                                     }
                                     ?>
                                 </div>
-                                <?php
-                            }
-                            ?>
+                                    <?php
+                                }
+                                ?>
 
                             <button type="submit" id="Submit1" style="display: none;"></button>
                         </form>
