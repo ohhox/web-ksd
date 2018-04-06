@@ -65,13 +65,14 @@
                                 <td><?= $i++ ?></td>
                                 <?php
                                 $field_name = $v['field_name'];
+                                
                                 foreach ($table['field'] as $k => $v) {
                                     echo "<td>{$value->$field_name}</td>";
                                 }
                                 ?>
                                 <td>                                            
-                                    <a class="btn btn-xs btn-warning editFormOpen" data-id="<?= $value->$table['pk']; ?>" href="<?= URL ?>masterdata/q/<?= $this->dataid ?>/<?= $value->$table['pk']; ?>">แก้ไข</a>
-                                    <a class="btn  btn-xs btn-danger text-white RemoveItems" href="<?= URL ?>masterdata/d/<?= $this->dataid ?>/<?= $value->$table['pk']; ?>">ลบ</a>
+                                    <a class="btn btn-xs btn-warning editFormOpen" data-id="<?= $value->oid; ?>" href="<?= URL ?>masterdata/q/<?= $this->dataid ?>/<?= $value->oid; ?>">แก้ไข</a>
+                                    <a class="btn  btn-xs btn-danger text-white RemoveItems" href="<?= URL ?>masterdata/d/<?= $this->dataid ?>/<?= $value->oid; ?>">ลบ</a>
                                 </td>
                             </tr>
                             <?php
