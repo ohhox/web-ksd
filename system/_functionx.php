@@ -110,7 +110,7 @@ class functiomx {
                     'field_type' => 'input',
                     'required' => 'required'
                 ),
-                '2' => array(
+                '3' => array(
                     'field_name' => "ShortName",
                     'field_Description' => 'Short Name',
                     'field_type' => 'input',
