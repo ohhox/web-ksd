@@ -64,8 +64,9 @@
                             <tr>
                                 <td><?= $i++ ?></td>
                                 <?php
+                                $field_name = $v['field_name'];
                                 foreach ($table['field'] as $k => $v) {
-                                    echo "<td>{$value->$v['field_name']}</td>";
+                                    echo "<td>{$value->$field_name}</td>";
                                 }
                                 ?>
                                 <td>                                            
