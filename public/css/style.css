@@ -1,0 +1,38 @@
+.clear{
+    clear: both;
+}
+.form-inline-input{
+    display: flex;
+}
+.form-inline-input div.fiii{
+    flex: 2;
+}
+.form-inline-input i.fiii{
+    padding: 10px;    
+    background: #cccccc;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-shadow: none;
+    color: white;
+
+}
+.form-inline-input i.fiii:hover{
+   box-shadow: 0px 0 5px #717171;
+    color: black;
+}
+.ftb{
+    background: #ffffff;
+    border: 1px solid #cccccc;
+    padding: 6px 12px;
+    display: inline-block;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+    z-index: 1;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    -webkit-box-shadow: none;
+    box-shadow: none; 
+}

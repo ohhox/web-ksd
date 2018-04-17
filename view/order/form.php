@@ -53,7 +53,13 @@
         <label>
             Product
         </label>
-        <select name="ProductOid" component="select" class="form-control pugin">
+        <div class="form-inline-input">
+            <div class="fiii ftb">
+                Select some product...
+            </div>
+            <i class="ft-search fiii"></i>
+        </div>
+<!--        <select name="ProductOid" component="select" class="form-control pugin">
             <?php
             if (!empty($this->data['option']['Product'])) {
                 foreach ($this->data['option']['Product'] AS $key => $values) {
@@ -63,7 +69,7 @@
                 }
             }
             ?> 
-        </select>
+        </select>-->
 
     </div>
     <div class="form-group col-md-3">

@@ -7,7 +7,7 @@ class order extends Controller {
     public function __construct() {
         parent::__construct();
         $this->pageActive = "order";
-        $this->loadModel('orders');
+        $this->loadModel('orders'); 
     }
 
     public function index() {

@@ -5,8 +5,8 @@ class View {
     public $viewDir = "./view/";
     public $layout = array(
         'layout' => "layout/",
-        "header" => 'default/header.php',
-        "footer" => 'default/footer.php'
+        "header" => 'moderm/header.php',
+        "footer" => 'moderm/footer.php'
     );
     public $viewMessage = "";
     public $pageActive = "home";
