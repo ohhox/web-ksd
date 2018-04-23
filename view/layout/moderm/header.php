@@ -17,8 +17,7 @@
         <link rel="stylesheet" type="text/css" href="<?= URL ?>public/app-assets/css/app.css">
         <!-- END MODERN CSS-->
         <link rel="stylesheet" type="text/css" href="<?= URL ?>public/app-assets/css/core/menu/menu-types/vertical-menu.css">
-        <link rel="stylesheet" type="text/css" href="<?= URL ?>public/app-assets/css/core/menu/menu-types/vertical-overlay-menu.css">
-        <link rel="stylesheet" type="text/css" href="<?= URL ?>public/app-assets/vendors/css/documentation.css">
+        <link rel="stylesheet" type="text/css" href="<?= URL ?>public/app-assets/css/core/menu/menu-types/vertical-overlay-menu.css"> 
 
         <!-- BEGIN Page Level CSS-->
         <link rel="stylesheet" type="text/css" href="<?= URL ?>public/app-assets/css/core/menu/menu-types/vertical-menu-modern.css">

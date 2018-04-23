@@ -66,7 +66,28 @@
 ?>
 <div class="row">
     <div class="col-12">
-
+        <div class="content-header row">
+            <div class="content-header-left col-md-6 col-12 mb-2 breadcrumb-new">
+                <h3 class="content-header-title mb-0 d-inline-block">Order List</h3>
+                <div class="row breadcrumbs-top d-inline-block">
+                    <div class="breadcrumb-wrapper col-12">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a href="<?=URL?>">Home</a>
+                            </li>
+                            <li class="breadcrumb-item active"> Order List 
+                            </li> 
+                        </ol>
+                    </div>
+                </div>
+            </div>
+            <div class="content-header-right col-md-6 col-12">
+                <div class="dropdown float-md-right">
+                    <a href="<?=URL?>order/form" class="btn btn-success width-200 buttonAnimation text-white">New Order <i class="ft-plus"></i></a>
+                    
+                </div>
+            </div>
+        </div>
+        
         <div class="card">
             <div class="card-header">
                 <h4 class="card-title">Order List</h4>
@@ -81,12 +102,9 @@
                 </div>
             </div>
             <div class="card-body card-dashboard">
-                <div class="">
-                    <?= getLink('order/form', 'Create Order <i class="ft-plus"></i> ', '', ' btn btn-success pull-right'); //button button-glow button-border button-small button-primary?> 
-                    <div class="clear"></div>
-                </div>
 
-                <table class="table datatable">
+
+                <table class="table datatable table-sm">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -113,7 +131,7 @@
                                 <tr key={key}>
                                     <td><?= $i++ ?></td>
                                     <td><?= $value->CustomerName ?></td>
-                                    <td><?= $value->ProductTypeName ?></td>
+                                    <td><?= $value->orderProductTypeName ?></td>
                                     <td><?= $value->ProductName ?></td> 
                                     <td><?= $value->FactoryTypeName ?></td>
                                     <td><?= $value->Remark ?></td>
@@ -122,8 +140,8 @@
                                     <td><?= $value->Holdername ?></td>
                                     <td><?= $value->TrayName ?></td>
                                     <td><?= $value->OrderQty ?></td>
-                                    <td><?= $value->UnitName ?></td>
-                                    <td> 
+                                    <td><?= $value->UnitNameFullEng ?></td>
+                                    <td style="width: 80px;"> 
                                         <?= getLink('order/form/' . $value->oid, "<i class='ft-edit-2'></i>", '', 'btn btn-sm btn-success') ?> 
                                         <?= getLink('order/delete/' . $value->oid, "<i class='ft-trash-2'></i> ", '', 'btn btn-sm btn-danger RemoveItems') ?> 
                                     </td>

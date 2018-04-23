@@ -35,7 +35,7 @@
                     <div style="padding: 20px;">
                         <h1 class="pageheader">
                             <button type="button" class="btn btn-info pull-right" id="openForm">
-                                 Create New <?= $this->dataid ?>  <i class="ft-plus"></i> </button>                  
+                                Create New <?= $this->dataid ?>  <i class="ft-plus"></i> </button>                  
                             <div class="clear"></div>
                         </h1>
                         <div>
@@ -54,8 +54,9 @@
                                 </thead>
                                 <tbody>
                                     <?php
+                                  echo  $pk = $table['pk'];
                                     $i = 1;
-                                    foreach ($this->data as $key => $value) { 
+                                    foreach ($this->data as $key => $value) {
                                         ?>
                                         <tr>
                                             <td><?= $i++ ?></td>
@@ -64,9 +65,10 @@
                                                 $field_name = $v['field_name'];
                                                 echo "<td>{$value->$field_name}</td>";
                                             }
+                                            
                                             ?>
                                             <td>                                            
-                                                <a class="btn btn-xs btn-success btn-sm editFormOpen" data-id="<?= $value->oid; ?>" href="<?= URL ?>masterdata/q/<?= $this->dataid ?>/<?= $value->oid; ?>">แก้ไข</a>
+                                                <a class="btn btn-xs btn-success btn-sm editFormOpen" data-id="<?= $value->$pk; ?>" href="<?= URL ?>masterdata/q/<?= $this->dataid ?>/<?= $value->$pk; ?>">แก้ไข</a>
                                                 <a class="btn  btn-xs btn-danger btn-sm text-white RemoveItems" href="<?= URL ?>masterdata/d/<?= $this->dataid ?>/<?= $value->oid; ?>">ลบ</a>
                                             </td>
                                         </tr>
@@ -125,10 +127,10 @@
 
             <?php } else {
                 ?>
-           
+
                 <h3 style="padding: 100px;text-align: center;">
                     <i class="ft-arrow-up"></i> <br/>
-                     Please select some tap.</h3>
+                    Please select some tap.</h3>
             <?php }
             ?>
         </div>
