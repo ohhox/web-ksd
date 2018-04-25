@@ -66,7 +66,11 @@ class masterdata extends Controller {
         if (!empty($table) && !empty($id)) {
             $model = new Model();
             $model->table = $table;
-            $res = $model->query("SELECT * FROM $table WHERE oid='$id'");
+            $pk = "oid";
+            if($table == "Units"){
+                $pk = "UnitOID";
+            }
+            $res = $model->query("SELECT * FROM $table WHERE $pk='$id'");
             if ($res)
                 $res = $res[0];
             echo json_encode($res);

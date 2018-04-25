@@ -72,21 +72,21 @@ class functiomx {
                 )
             )
         ),
-        'ProductTypes' => array(
-            'table_name' => 'ProductTypes',
+        'OrderProductTypes' => array(
+            'table_name' => 'OrderProductTypes',
             'table_Description' => "Product Types",
             'pk' => 'oid',
             'Icon' => 'fa-share-alt',
             'field' => array(
                 '1' => array(
-                    'field_name' => "ProductTypeCode",
-                    'field_Description' => 'Product Type Code',
+                    'field_name' => "OrderProductTypeCode",
+                    'field_Description' => 'Order Product Type Code',
                     'field_type' => 'input',
                     'required' => 'required',
                 ),
                 '2' => array(
-                    'field_name' => "ProductTypeName",
-                    'field_Description' => 'Product Type Name',
+                    'field_name' => "OrderProductTypeName",
+                    'field_Description' => 'Order Product Type Name',
                     'field_type' => 'input',
                     'required' => 'required'
                 )
@@ -161,18 +161,30 @@ class functiomx {
         'Units' => array(
             'table_name' => 'Units',
             'table_Description' => "Units",
-            'pk' => 'oid',
+            'pk' => 'UnitOID',
             'Icon' => 'fa-certificate',
             'field' => array(
                 '1' => array(
-                    'field_name' => "UnitCode",
-                    'field_Description' => 'Unit Code',
+                    'field_name' => "UnitNameFullThai",
+                    'field_Description' => 'Unit Name Thai',
                     'field_type' => 'input',
                     'required' => 'required'
                 ),
                 '2' => array(
-                    'field_name' => "UnitName",
-                    'field_Description' => 'Unit Name',
+                    'field_name' => "UnitNameFullEng",
+                    'field_Description' => 'Unit Name Eng',
+                    'field_type' => 'input',
+                    'required' => 'required'
+                ),
+                 '3' => array(
+                    'field_name' => "UnitNameShortThai",
+                    'field_Description' => 'Unit Short Name Thai',
+                    'field_type' => 'input',
+                    'required' => 'required'
+                ),
+                 '4' => array(
+                    'field_name' => "UnitNameShortEng",
+                    'field_Description' => 'Unit Short Name Eng',
                     'field_type' => 'input',
                     'required' => 'required'
                 )

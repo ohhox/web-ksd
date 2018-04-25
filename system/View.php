@@ -16,16 +16,28 @@ class View {
         
     }
 
-    public function view($viewname) {
+    public function view($viewname, $inc = array()) {
         $view = $this->viewDir . $viewname . '.php';
 
         if (file_exists($view)) {
             include $this->viewDir . $this->layout['layout'] . $this->layout['header'];
             include $view;
+            if (!empty($inc)) {
+                foreach ($inc as $key => $value) {
+                    $this->incFile($value);
+                }
+            }
             include $this->viewDir . $this->layout['layout'] . $this->layout['footer'];
         } else {
             $this->viewMessage = "View <b>{$viewname}</b> do not exists. ";
             include 'view/error/error.php';
+        }
+    }
+
+    public function incFile($viewname) {
+        $view = $this->viewDir . $viewname . '.php';
+        if (file_exists($view)) {
+            include $view;
         }
     }
 
