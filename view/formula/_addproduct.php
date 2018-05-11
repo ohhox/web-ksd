@@ -1,7 +1,4 @@
-
-
-
-<div class="modal fade text-left " id="default" tabindex="-1" role="dialog" aria-labelledby="Search Product" >
+<div class="modal fade text-left " id="addAndSearch" tabindex="-1" role="dialog" aria-labelledby="Search Product" >
     <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content"> 
             <div class="modal-header">
@@ -11,11 +8,11 @@
                 </button>
             </div>
             <div class="modal-body">
-                <form class="form  row" id="searchProduct">
+                <form class="form  row" id="addAndSearchAPI">
                     <div class="col-7">
                         <div class="form-group row">
                             <label class="col-3 text-right">
-                                ProductType
+                                ProductType xx
                             </label>
                             <div class="col-9">
                                 <select class="select form-control form-control-sm pugin" name="ItemTypes">
@@ -62,11 +59,11 @@
                             <div class="col-9">
                                 <select class="select form-control form-control-sm pugin" name="Category">
                                     <option value="all">Select   Category </option>
-<?php
-if (!empty($this->data['option']['Category'])) {
-    foreach ($this->data['option']['Category'] AS $key => $values) {
-        $active = "";
-        ?>
+                                    <?php
+                                    if (!empty($this->data['option']['Category'])) {
+                                        foreach ($this->data['option']['Category'] AS $key => $values) {
+                                            $active = "";
+                                            ?>
                                             <option key={key} value="<?= $values->ProdCatOID ?>" <?= $active ?> ><?= $values->ProdCatName ?></option>
                                             <?php
                                         }
@@ -83,11 +80,11 @@ if (!empty($this->data['option']['Category'])) {
                             <div class="col-9">
                                 <select class="select form-control form-control-sm pugin" name="SubCategory">
                                     <option value="all">Select  Sub  Category</option>
-<?php
-if (!empty($this->data['option']['SubCategory'])) {
-    foreach ($this->data['option']['SubCategory'] AS $key => $values) {
-        $active = "";
-        ?>
+                                    <?php
+                                    if (!empty($this->data['option']['SubCategory'])) {
+                                        foreach ($this->data['option']['SubCategory'] AS $key => $values) {
+                                            $active = "";
+                                            ?>
                                             <option key={key} value="<?= $values->ProdCatSubOID ?>" <?= $active ?> ><?= $values->ProdCatSubName ?></option>
                                             <?php
                                         }
@@ -108,7 +105,7 @@ if (!empty($this->data['option']['SubCategory'])) {
                 </form>
 
                 <div>
-                    <table class="table table-sm" id="SearchProductOrderForm">
+                    <table class="table table-sm" id="addAndSearchAPIAppend">
                         <thead>
                             <tr>
                                 <td >Produce Code</td>
@@ -129,3 +126,5 @@ if (!empty($this->data['option']['SubCategory'])) {
         </div>
     </div>
 </div>
+
+ 

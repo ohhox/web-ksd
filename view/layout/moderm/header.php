@@ -70,7 +70,11 @@
 
                     </li>
                     <li class=" nav-item"><a href="<?= URL ?>order">
-                            <i class="ft-layers"></i><span class="menu-title" data-i18n="nav.dash.main">Order</span>
+                            <i class="ft-layers"></i><span class="menu-title" data-i18n="nav.dash.order">Order</span>
+                        </a>
+                    </li>
+                     <li class=" nav-item"><a href="<?= URL ?>productformula">
+                            <i class="ft-codepen"></i><span class="menu-title" data-i18n="nav.dash.main">Product formula</span>
                         </a>
                     </li>
                      <li class=" nav-item"><a href="<?= URL ?>masterdata">

@@ -99,19 +99,19 @@ class functiomx {
             'Icon' => 'fa-share-alt',
             'field' => array(
                 '1' => array(
-                    'field_name' => "ProductCode",
+                    'field_name' => "ProdCode",
                     'field_Description' => 'Product Code',
                     'field_type' => 'input',
                     'required' => 'required',
                 ),
                 '2' => array(
-                    'field_name' => "ProductName",
+                    'field_name' => "ProdName1",
                     'field_Description' => 'Product Name',
                     'field_type' => 'input',
                     'required' => 'required'
                 ),
                 '3' => array(
-                    'field_name' => "ShortName",
+                    'field_name' => "ProdShortName",
                     'field_Description' => 'Short Name',
                     'field_type' => 'input',
                     'required' => 'required'
