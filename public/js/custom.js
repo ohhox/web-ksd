@@ -65,6 +65,8 @@ function selectMe(obj) {
     $("#ProductCode").val($(obj).attr("data-code"));
     $("#ProductOid").val($(obj).attr("data-id"));
     $("#productname").change();
+
+    $('#default').modal('hide');
 }
 // jQuery.extend(jQuery.expr[':'], {
 //     focusable: function (el, index, selector) {
@@ -110,30 +112,30 @@ $('#addAndSearchAPI').on('submit', function (e) {
     });
 });
 
-
-$(function () {
-    $("#appendProductTable tbody").on('change', '.Weight', function () {
-        let sum = 0;
-        $(".Weight").each(function () {
-            if ($(this).val() != '') {
-                sum += parseFloat($(this).val());
-            }
-        });
-
-        $("#PreTotalWeight").val(sum);
-    });
-
-    $("#appendProductTable tbody").on('change', '.MixedWeight', function () {
-        let sum = 0;
-        $(".MixedWeight").each(function () {
-            if ($(this).val() != '') {
-                sum += parseFloat($(this).val());
-            }
-        });
-
-        $("#PreMixedTotalWeight").val(sum);
-    });
-});
+//
+//$(function () {
+//    $("#appendProductTable tbody").on('change', '.Weight', function () {
+//        let sum = 0;
+//        $(".Weight").each(function () {
+//            if ($(this).val() != '') {
+//                sum += parseFloat($(this).val());
+//            }
+//        });
+//
+//        $("#PreTotalWeight").val(sum);
+//    });
+//
+//    $("#appendProductTable tbody").on('change', '.MixedWeight', function () {
+//        let sum = 0;
+//        $(".MixedWeight").each(function () {
+//            if ($(this).val() != '') {
+//                sum += parseFloat($(this).val());
+//            }
+//        });
+//
+//        $("#PreMixedTotalWeight").val(sum);
+//    });
+//});
 
 function postData(url, data) {
     // Default options are marked with *

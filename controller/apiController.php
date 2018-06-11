@@ -22,7 +22,7 @@ class api extends Controller {
         $data = $this->model->getFormulasListByProdOID($prodOid);
         $res = [];
         foreach ($data as $key => $value) {
-            $value->LastUpdated = date("d/m/Y - H:i", strtotime($value->LastUpdated));
+            $value->CreateAt = date("d/m/Y - H:i", strtotime($value->CreateAt));
             $res[] = $value;
         }
 
@@ -39,10 +39,11 @@ class api extends Controller {
     public function newFormula() {
         $prodOid = $_POST['prodOid'];
         $option = $_POST['option'];
+        $date = $_POST['date'];
         if (!empty($prodOid)) {
             if ($option == 'firstFormulas') {
                 $this->loadModel('productFormulas');
-                $data = $this->model->createFirstFormulas($prodOid);
+                $data = $this->model->createFirstFormulas($prodOid, $date);
                 if ($data) {
                     $this->respone = [
                         "succes" => TRUE,
@@ -51,7 +52,7 @@ class api extends Controller {
                 }
             } else if ($option == 'newRevisionWithItem') {
                 $this->loadModel('productFormulas');
-                $data = $this->model->createNextFormulas($prodOid, $option);
+                $data = $this->model->createNextFormulas($prodOid, $date, $option);
 
                 $this->loadModel('productFormulaDetail');
                 $this->model->createNextFormulasItem($data);
@@ -61,7 +62,7 @@ class api extends Controller {
                 ];
             } else if ($option == 'newRevisionNoItem') {
                 $this->loadModel('productFormulas');
-                $data = $this->model->createNextFormulas($prodOid);
+                $data = $this->model->createNextFormulas($prodOid, $date);
                 $this->respone = [
                     "succes" => TRUE,
                     'data' => $data

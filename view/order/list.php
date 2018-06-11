@@ -72,7 +72,7 @@
                 <div class="row breadcrumbs-top d-inline-block">
                     <div class="breadcrumb-wrapper col-12">
                         <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a href="<?=URL?>">Home</a>
+                            <li class="breadcrumb-item"><a href="<?= URL ?>">Home</a>
                             </li>
                             <li class="breadcrumb-item active"> Order List 
                             </li> 
@@ -82,12 +82,12 @@
             </div>
             <div class="content-header-right col-md-6 col-12">
                 <div class="dropdown float-md-right">
-                    <a href="<?=URL?>order/form" class="btn btn-success width-200 buttonAnimation text-white">New Order <i class="ft-plus"></i></a>
-                    
+                    <a href="<?= URL ?>order/form" class="btn btn-success width-200 buttonAnimation text-white">New Order <i class="ft-plus"></i></a>
+
                 </div>
             </div>
         </div>
-        
+
         <div class="card">
             <div class="card-header">
                 <h4 class="card-title">Order List</h4>
@@ -104,7 +104,7 @@
             <div class="card-body card-dashboard">
 
 
-                <table class="table datatable table-sm">
+                <table class="table table-sm table-responsive">
                     <thead>
                         <tr>
                             <th>#</th>
@@ -119,7 +119,7 @@
                             <th>Tray</th>
                             <th>Order Qty.</th>
                             <th>Unit</th>
-                            <th style="width: 30px;">Manage</th>
+                            <th >Manage</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -141,7 +141,7 @@
                                     <td><?= $value->TrayName ?></td>
                                     <td><?= $value->OrderQty ?></td>
                                     <td><?= $value->UnitNameFullEng ?></td>
-                                    <td style="width: 80px;"> 
+                                    <td style="width: 100px;padding: 0px;"> 
                                         <?= getLink('order/form/' . $value->oid, "<i class='ft-edit-2'></i>", '', 'btn btn-sm btn-success') ?> 
                                         <?= getLink('order/delete/' . $value->oid, "<i class='ft-trash-2'></i> ", '', 'btn btn-sm btn-danger RemoveItems') ?> 
                                     </td>

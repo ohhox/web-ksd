@@ -123,8 +123,7 @@ if (!empty($this->data['option']['SubCategory'])) {
                 </div>
             </div>
             <div class="modal-footer">                
-                <button type="button" class="btn grey btn-dark" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn grey btn-success" data-dismiss="modal">OK</button>
+                <button type="button" class="btn grey btn-dark" data-dismiss="modal">Cancel</button> 
             </div>
         </div>
     </div>

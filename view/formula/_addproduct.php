@@ -120,11 +120,38 @@
                 </div>
             </div>
             <div class="modal-footer">                
-                <button type="button" class="btn grey btn-dark" data-dismiss="modal">Cancel</button>
-                <button type="button" class="btn grey btn-success" data-dismiss="modal">OK</button>
+                <button type="button" class="btn grey btn-dark" data-dismiss="modal">Close Popup</button> 
             </div>
         </div>
     </div>
 </div>
 
- 
+<div class="modal fade text-left " id="NewRevesions" tabindex="-1" role="dialog" aria-labelledby="Search Product" >
+    <div class="modal-dialog modal-sm" role="document">
+        <div class="modal-content"> 
+            <div class="modal-header">
+                <h4 class="modal-title" id="myModalLabel1">New Revision</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form class="form  row" id="NewRevSelectDatetim"> 
+                    <input type="hidden" name="newRevprodOid" id="newRevprodOid"/>
+                    <input type="hidden" name="newRevOption" id="newRevOption" />
+                    <div class="form-group" style="padding: 30px;width: 100%;">
+                        <label>เลือกวันที่</label>
+                        <input type="text" name="dateOfRevesion" id="dateOfRevesion" class="form-control" value="<?= date('Y-m-d') ?>">
+                    </div>
+                    <input type="submit" id="clicktoSubmitRevNew" style="display: none;">
+                </form>
+
+            </div>
+            <div class="modal-footer">                
+                <button type="button" class="btn grey btn-dark" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn grey btn-success" onclick="$('#clicktoSubmitRevNew').click();"   data-dismiss="modal">Create Revision</button>
+            </div>
+        </div>
+    </div>
+</div>
+

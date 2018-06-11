@@ -28,9 +28,16 @@ class masterdata extends Controller {
         if (!empty($table)) {
             $model = new Model();
             $model->table = $table;
-            $model->__setMultiple($_POST);
+            $data = $_POST;
+            if($table == 'Units'){
+              $data['UnitOID']   = uniqid();
+            }
+            echo strlen( $data['UnitOID'] );
+            pshow($data);
+            
+            $model->__setMultiple($data);
             $model->create();
-            Go(URL . "masterdata/l/$table");
+            //     Go(URL . "masterdata/l/$table");
         } else {
             Go(URL);
         }
@@ -41,9 +48,16 @@ class masterdata extends Controller {
             $model = new Model();
             $model->table = $table;
             $model->pk = 'oid';
+            if ($table == 'Units') {
+                $model->pk = 'UnitOID';
+            }
+            if ($table == 'Products') {
+                $model->pk = 'ProdOID';
+            }
 
             $model->__setMultiple($_POST);
             $model->save($id);
+
             Go(URL . "masterdata/l/$table");
         } else {
             Go(URL);
@@ -67,7 +81,7 @@ class masterdata extends Controller {
             $model = new Model();
             $model->table = $table;
             $pk = "oid";
-            if($table == "Units"){
+            if ($table == "Units") {
                 $pk = "UnitOID";
             }
             $res = $model->query("SELECT * FROM $table WHERE $pk='$id'");

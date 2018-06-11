@@ -46,11 +46,11 @@
 
     $(function () {
         $("select.pugin").selectize();
-        $(".RemoveItems").on('click', function (e) {
-            if (!confirm('Confirm To Remove This Item.')) {
-                e.preventDefault();
-            }
-        });
+//        $(".RemoveItems").on('click', function (e) {
+//            if (!confirm('Confirm To Remove This Item.')) {
+//                e.preventDefault();
+//            }
+//        });
     });
 
 <?php

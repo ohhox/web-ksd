@@ -9,7 +9,7 @@ class orders_model extends Model {
     }
 
     public function getOrder() {
-          $sql = "SELECT o.oid,o.ProductCode,Remark,Revision,OrderQty,c.ShortName AS CustomerName,FactoryTypeName,Holdername,p.ProdName1 AS ProductName,orderProductTypeName,SrickName,UnitNameFullEng,TrayName 
+        $sql = "SELECT o.oid,o.ProductCode,Remark,Revision,OrderQty,c.ShortName AS CustomerName,FactoryTypeName,Holdername,p.ProdName1 AS ProductName,orderProductTypeName,SrickName,UnitNameFullEng,TrayName 
                     FROM Orders AS o 
                     LEFT JOIN Customers AS c ON c.oid = o.CustomerOid 
                     LEFT JOIN FactoryTypes AS f ON f.oid = o.FactoryTypeOid 
@@ -18,13 +18,22 @@ class orders_model extends Model {
                     LEFT JOIN OrderProductTypes AS pt ON pt.oid = o.orderProductTypeOid 
                     LEFT JOIN Sricks AS s ON s.oid = o.SrickOid 
                     LEFT JOIN Units AS u ON u.UnitOID = o.UnitOid 
-                    LEFT JOIN Trays AS t ON t.oid = o.TrayOid ";
+                    LEFT JOIN Trays AS t ON t.oid = o.TrayOid 
+                    WHERE o.isDelete='0'
+                    ";
         return $this->query($sql);
     }
 
     public function removeOrder($orderId) {
         if (!empty($orderId)) {
-            $this->delete($orderId);
+            $data = [
+                'oid' => $orderId,
+                'isDelete' => '1',
+                'updated_at' => date('Y-m-d H:i:s')
+            ];
+            $this->__setMultiple($data);
+            $this->save();
+            // $this->delete($orderId);
         }
     }
 

@@ -15,7 +15,7 @@
             <div class="row">
                 <div class="form-group col-md-4">
                     <label>
-                        Product
+                        Product <i class="icon-info text-danger" title="required"></i>
                     </label>
                     <div class="form-inline-input">
                         <input class="fiii ftb noselect" placeholder="Select some product." readonly id="productname" required/> 
@@ -32,8 +32,8 @@
                     <input type="text" readonly  class="form-control" name=""  id="nameSize">
                 </div>
                 <div class="form-group col-md-4">
-                    <label>1 ชุดผลิตได้</label>
-                    <input type="text"    class="form-control" name="QtyPerSet" id="QtyPerSet" >
+                    <label>1 ชุดผลิตได้ <i class="icon-info text-danger" title="required"></i></label>
+                    <input type="number"    class="form-control decimal-inputmask" min="0" required name="QtyPerSet" id="QtyPerSet" placeholder="ป้อนค่า" >
                 </div>
                 <div class="form-group col-md-4">
                     <label>Revision ล่าสุด</label>
@@ -81,14 +81,14 @@
                         <tfoot style="background: #f0f0f0;">
                             <tr>
                                 <td colspan="3" class="text-right">น.น. รวม</td>
-                                <td> <input type="text"  readonly name="PreTotalWeight" id="PreTotalWeight"/></td>
-                                <td> <input type="text" readonly  name="PreMixedTotalWeight" id="PreMixedTotalWeight"/></td>
+                                <td> <input class=" form-control" type="text"  readonly name="PreTotalWeight" id="PreTotalWeight"/></td>
+                                <td> <input class=" form-control" type="text" readonly  name="PreMixedTotalWeight" id="PreMixedTotalWeight"/></td>
                                 <td></td>
                             </tr>
                             <tr>
                                 <td colspan="3" class="text-right">น.น. หลังตัด</td>
-                                <td> <input type="text" name="PostTotalWeight" id="PostTotalWeight"/></td>
-                                <td> <input type="text" name="PostMixedTotslWeight" id="PostMixedTotslWeight"/></td>
+                                <td> <input class="decimal-inputmask form-control" type="text" name="PostTotalWeight" id="PostTotalWeight"/></td>
+                                <td> <input class="decimal-inputmask form-control" type="text" name="PostMixedTotslWeight" id="PostMixedTotslWeight"/></td>
                                 <td></td>
 
                             </tr>
@@ -97,7 +97,8 @@
                     </table>
                 </div>
                 <div class="col-md-12">
-                    <button class="btn btn-primary pull-right"><i class="ft-save"></i> Save </button>
+                    <button type="submit"  class="btn btn-primary pull-right"><i class="ft-save"></i> Save </button>
+                    <button type="button" onclick="formReset()"  class="btn btn-warning "><i class="ft-refresh-ccw"></i>  reset </button>
                 </div>
             </div> 
         </form>

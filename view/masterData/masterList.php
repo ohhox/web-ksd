@@ -39,7 +39,7 @@
                             <div class="clear"></div>
                         </h1>
                         <div>
-                            <table class=" table datatable"  >
+                            <table class=" table table-sm "  >
                                 <thead>
                                     <tr>
                                         <th>#</th>
@@ -49,7 +49,7 @@
                                             echo "<th>{$value['field_Description']}</th>";
                                         }
                                         ?>
-                                        <th>Manage</th>
+                                        <th >Manage</th>
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -66,7 +66,7 @@
                                                 echo "<td>{$value->$field_name}</td>";
                                             }
                                             ?>
-                                            <td>                                            
+                                            <td style="width:100px;padding: 0;">                                            
                                                 <a class="btn btn-xs btn-success btn-sm editFormOpen" data-id="<?= $value->$pk; ?>" href="<?= URL ?>masterdata/q/<?= $this->dataid ?>/<?= $value->$pk; ?>">แก้ไข</a>
                                                 <a class="btn  btn-xs btn-danger btn-sm text-white RemoveItems" href="<?= URL ?>masterdata/d/<?= $this->dataid ?>/<?= $value->oid; ?>">ลบ</a>
                                             </td>
@@ -96,7 +96,10 @@
                                     foreach ($table['field'] as $key => $value) {
                                         ?>
                                         <div class="form-group">
-                                            <label><?= $value['field_Description'] ?> <?php if (!empty($value['comment'])) { ?><div> <code>(<?= $value['comment'] ?>)</code></div> <?php } ?></label>
+                                            <label>
+                                                <?= $value['field_Description'] ?> 
+                                                <?php if (!empty($value['comment'])) { ?><div> <code>(<?= $value['comment'] ?>)</code></div> <?php } ?>
+                                            </label>
                                             <?php
                                             if ($value['field_type'] == 'input') {
                                                 ?>

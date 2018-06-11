@@ -14,7 +14,7 @@ class productFormulas_model extends Model {
             'isDeleted' => '0'
         );
 
-        return $this->search($data, array('ActiveRevOID' => 'ASC' ,"RevCount"=>'DESC'));
+        return $this->search($data, array('ActiveRevOID' => 'ASC', "RevCount" => 'DESC'));
     }
 
     public function getProductFormulaByPFOID($id) {
@@ -25,12 +25,12 @@ class productFormulas_model extends Model {
         return $this->search($data, array('ActiveRevOID' => 'ASC'));
     }
 
-    public function createFirstFormulas($id) {
+    public function createFirstFormulas($id, $date) {
         $data = [
             'PFOID' => uniqid(),
             'ProdOID' => $id,
             'RevCount' => '1',
-            'CreateAt' => date('Y-m-d H:i:s'),
+            'CreateAt' => $date . date(' H:i:s'),
             'LastUpdated' => date('Y-m-d H:i:s')
         ];
 
@@ -38,7 +38,7 @@ class productFormulas_model extends Model {
         return $this->create();
     }
 
-    public function createNextFormulas($ProdOID, $option = '') {
+    public function createNextFormulas($ProdOID, $date, $option = '') {
         $lastRevition = $this->query("SELECT TOP 1 *  FROM ProductFomulars WHERE ProdOID='$ProdOID' AND isDeleted='0' ORDER BY RevCount DESC ");
         $revcount = 1;
         if (!empty($lastRevition))
@@ -49,7 +49,7 @@ class productFormulas_model extends Model {
             'PFOID' => $newId,
             'ProdOID' => $ProdOID,
             'RevCount' => $revcount,
-            'CreateAt' => date('Y-m-d H:i:s'),
+            'CreateAt' => $date . date(' H:i:s'),
             'LastUpdated' => date('Y-m-d H:i:s')
         ];
         if (!empty($option)) {
@@ -64,11 +64,12 @@ class productFormulas_model extends Model {
                     'PreMixedTotalWeight' => $lastRevition[0]->PreMixedTotalWeight,
                     'PostMixedTotalWeight' => $lastRevition[0]->PostMixedTotalWeight,
                     'Remark' => $lastRevition[0]->Remark,
-                    'CreateAt' => date('Y-m-d H:i:s'),
+                    'CreateAt' => $date . date(' H:i:s'),
                     'LastUpdated' => date('Y-m-d H:i:s')
                 ];
             }
         }
+       // pshow($data);
         $this->__setMultiple($data);
         $this->create();
         $this->query("UPDATE ProductFomulars SET ActiveRevOID='1'  WHERE PFOID='{$lastRevition[0]->PFOID}'");

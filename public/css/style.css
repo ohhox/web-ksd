@@ -50,3 +50,8 @@
 .pdbt10{
     padding-bottom: 10px;
 }
+
+.swal2-overflow{
+      overflow-x: visible;
+  overflow-y: visible;
+}

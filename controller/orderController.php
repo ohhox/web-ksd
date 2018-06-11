@@ -14,25 +14,26 @@ class order extends Controller {
 
         $this->data = $this->model->getOrder();
         $this->pageTiitle = "Order List";
-        $this->view('order/list');
+        $this->view('order/list', array(), array('order/index_js'));
     }
 
     public function form($id = "", $name = "") {
 
         if ($_POST) {
             $data = ($_POST);
-            
+
             if (empty($id)) {
                 $data['created_at'] = date('Y-m-d H:i:s');
+                $data['updated_at'] = date('Y-m-d H:i:s');
                 $this->model->__setMultiple($data);
                 $this->model->create();
             } else {
                 $data['updated_at'] = date('Y-m-d H:i:s');
+                $data['Revision'] = ($data['Revision'] + 1);
                 $this->model->__setMultiple($data);
                 $this->model->save($id);
-            } 
-             Go(URL . 'order');
-        
+            }
+            Go(URL . 'order');
         }
 
         $array['customer'] = $this->model->_getTable('customers');
@@ -57,6 +58,12 @@ class order extends Controller {
             if (!empty($order)) {
                 $this->data['Myorder'] = $order[0];
                 $this->id = $id;
+                $prodid = $order[0]->ProductOid;
+                $prod = $this->model->query("SELECT TOP (1) [ProdOID] ,[ProdCode] ,[ProdmpNo] ,[ProdName1],[ProdName2],[ProdShortName],[ProdDescription]  FROM [KSD_MRP].[dbo].[Products] WHERE ProdOID='$prodid'");
+                if(!empty($prod)){
+                   
+                    $this->data['myproduct'] = $prod[0];
+                }
             }
         }
 
@@ -64,12 +71,12 @@ class order extends Controller {
 
         $this->view('order/form', array(
             'order/_search_product'
-        ));
+                ), array('order/js'));
     }
 
     public function delete($id) {
         if (!empty($id)) {
-            $this->model->delete($id);
+            $this->model->removeOrder($id);
         }
         Go(URL . 'order');
     }
@@ -80,7 +87,7 @@ class order extends Controller {
         $this->view('order/status');
     }
 
-    public function productsearch() { 
+    public function productsearch() {
         $data = $this->model->getProductSearch();
         echo json_encode($data);
     }
