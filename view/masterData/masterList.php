@@ -54,7 +54,7 @@
                                 </thead>
                                 <tbody>
                                     <?php
-                                  echo  $pk = $table['pk'];
+                                    $pk = $table['pk'];
                                     $i = 1;
                                     foreach ($this->data as $key => $value) {
                                         ?>
@@ -65,7 +65,6 @@
                                                 $field_name = $v['field_name'];
                                                 echo "<td>{$value->$field_name}</td>";
                                             }
-                                            
                                             ?>
                                             <td>                                            
                                                 <a class="btn btn-xs btn-success btn-sm editFormOpen" data-id="<?= $value->$pk; ?>" href="<?= URL ?>masterdata/q/<?= $this->dataid ?>/<?= $value->$pk; ?>">แก้ไข</a>
@@ -128,7 +127,7 @@
             <?php } else {
                 ?>
 
-                <h3 style="padding: 100px;text-align: center;">
+                <h3 style="padding: 100px;text-align: center;color:#FF9149">
                     <i class="ft-arrow-up"></i> <br/>
                     Please select some tap.</h3>
             <?php }

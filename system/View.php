@@ -16,7 +16,7 @@ class View {
         
     }
 
-    public function view($viewname, $inc = array()) {
+    public function view($viewname, $inc = array(), $script = array()) {
         $view = $this->viewDir . $viewname . '.php';
 
         if (file_exists($view)) {
@@ -28,6 +28,11 @@ class View {
                 }
             }
             include $this->viewDir . $this->layout['layout'] . $this->layout['footer'];
+            if (!empty($script)) {
+                foreach ($script as $key => $value) {
+                    $this->incFile($value);
+                }
+            }
         } else {
             $this->viewMessage = "View <b>{$viewname}</b> do not exists. ";
             include 'view/error/error.php';

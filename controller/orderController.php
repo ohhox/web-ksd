@@ -80,8 +80,7 @@ class order extends Controller {
         $this->view('order/status');
     }
 
-    public function productsearch() {
-        sleep(1);
+    public function productsearch() { 
         $data = $this->model->getProductSearch();
         echo json_encode($data);
     }
