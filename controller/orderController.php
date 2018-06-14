@@ -14,6 +14,8 @@ class order extends Controller {
 
         $this->data = $this->model->getOrder();
         $this->pageTiitle = "Order List";
+        $this->customer = $this->model->_getTable('customers');
+
         $this->view('order/list', array(), array('order/index_js'));
     }
 
@@ -60,8 +62,8 @@ class order extends Controller {
                 $this->id = $id;
                 $prodid = $order[0]->ProductOid;
                 $prod = $this->model->query("SELECT TOP (1) [ProdOID] ,[ProdCode] ,[ProdmpNo] ,[ProdName1],[ProdName2],[ProdShortName],[ProdDescription]  FROM [KSD_MRP].[dbo].[Products] WHERE ProdOID='$prodid'");
-                if(!empty($prod)){
-                   
+                if (!empty($prod)) {
+
                     $this->data['myproduct'] = $prod[0];
                 }
             }

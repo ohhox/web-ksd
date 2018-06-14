@@ -8,6 +8,7 @@ class functiomx {
             'table_Description' => "Customers",
             'pk' => 'oid',
             'Icon' => 'fa-share-alt',
+            'manage' => true,
             'field' => array(
                 '1' => array(
                     'field_name' => "CustomerCode",
@@ -35,6 +36,7 @@ class functiomx {
             'table_Description' => "Factory Types",
             'pk' => 'oid',
             'Icon' => 'fa-usd',
+            'manage' => true,
             'field' => array(
                 '1' => array(
                     'field_name' => "FactoryTypeCode",
@@ -56,6 +58,7 @@ class functiomx {
             'table_Description' => "Holders",
             'pk' => 'oid',
             'Icon' => '',
+            'manage' => true,
             'field' => array(
                 '1' => array(
                     'field_name' => "HolderCode",
@@ -76,6 +79,7 @@ class functiomx {
             'table_name' => 'OrderProductTypes',
             'table_Description' => "Product Types",
             'pk' => 'oid',
+            'manage' => true,
             'Icon' => 'fa-share-alt',
             'field' => array(
                 '1' => array(
@@ -95,7 +99,8 @@ class functiomx {
         'Products' => array(
             'table_name' => 'Products',
             'table_Description' => "Products",
-            'pk' => 'oid',
+            'pk' => 'ProdOID',
+            'manage' => false,
             'Icon' => 'fa-share-alt',
             'field' => array(
                 '1' => array(
@@ -122,6 +127,7 @@ class functiomx {
             'table_name' => 'Sricks',
             'table_Description' => "Sricks",
             'pk' => 'oid',
+            'manage' => true,
             'Icon' => 'fa-list-ol',
             'field' => array(
                 '1' => array(
@@ -142,6 +148,7 @@ class functiomx {
             'table_name' => 'Trays',
             'table_Description' => "Trays",
             'pk' => 'oid',
+            'manage' => true,
             'Icon' => 'fa-certificate',
             'field' => array(
                 '1' => array(
@@ -163,6 +170,7 @@ class functiomx {
             'table_Description' => "Units",
             'pk' => 'UnitOID',
             'Icon' => 'fa-certificate',
+            'manage' => false,
             'field' => array(
                 '1' => array(
                     'field_name' => "UnitNameFullThai",

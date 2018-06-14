@@ -9,7 +9,22 @@ class orders_model extends Model {
     }
 
     public function getOrder() {
-        $sql = "SELECT o.oid,o.ProductCode,Remark,Revision,OrderQty,c.ShortName AS CustomerName,FactoryTypeName,Holdername,p.ProdName1 AS ProductName,orderProductTypeName,SrickName,UnitNameFullEng,TrayName 
+
+        $where = "";
+        if (isset($_GET)) {
+            if (isset($_GET['Customer']) && $_GET['Customer'] != 'all') {
+                $where .= " AND o.CustomerOid='{$_GET['Customer']}' ";
+            }
+            if (isset($_GET['productCode'])  && !empty($_GET['productCode']) ) {
+                $where .= " AND o.ProductCode LIKE '%{$_GET['productCode']}%' ";
+            }
+            if (isset($_GET['productName']) && !empty($_GET['productName'])) {
+                $where .= " AND p.ProdName1 LIKE '%{$_GET['productName']}%' ";
+            }
+        }
+
+          $sql = "
+            SELECT o.oid,o.ProductCode,Remark,Revision,OrderQty,c.ShortName AS CustomerName,FactoryTypeName,Holdername,p.ProdName1 AS ProductName,orderProductTypeName,SrickName,UnitNameFullEng,TrayName 
                     FROM Orders AS o 
                     LEFT JOIN Customers AS c ON c.oid = o.CustomerOid 
                     LEFT JOIN FactoryTypes AS f ON f.oid = o.FactoryTypeOid 
@@ -19,7 +34,7 @@ class orders_model extends Model {
                     LEFT JOIN Sricks AS s ON s.oid = o.SrickOid 
                     LEFT JOIN Units AS u ON u.UnitOID = o.UnitOid 
                     LEFT JOIN Trays AS t ON t.oid = o.TrayOid 
-                    WHERE o.isDelete='0'
+                    WHERE o.isDelete='0' $where
                     ";
         return $this->query($sql);
     }

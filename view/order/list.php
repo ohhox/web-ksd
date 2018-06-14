@@ -1,5 +1,3 @@
-
-
 <div class="card">
     <div class="card-header">
         <h4 class="card-title">Order Filter Options.</h4>
@@ -14,43 +12,44 @@
         <div class="card-body">
             <form >
                 <div class="row">
-                    <div class="col-1"> 
-                        <label>  Year</label>
-                        <fieldset class="form-group position-relative">
-                            <input type="text" name="year" class="form-control form-control-xs input-sm"  placeholder="Year">
-                            <div class="form-control-position">
-                                <i class="icon-calendar font-small-2"></i>
-                            </div>
 
-                        </fieldset>
-                    </div>
                     <div class="col-3"> 
-                        <label>  Order Status</label>
+                        <label>  Customer</label>
                         <fieldset class="form-group position-relative">
-                            <select class="form-control  form-control-xs input-sm" name="orderStatus">
-                                <option>Actual</option>
+                            <select class="form-control  form-control-xs  " name="Customer">
+                                <option value='all'>Choose Customer</option>
+                                <?php
+                                foreach ($this->customer as $key => $value) {
+                                    if (isset($_GET['Customer']) && $_GET['Customer'] == $value->oid) {
+                                        echo "<option value='{$value->oid}' selected> {$value->CustomerCode} - {$value->CustomerName} </option>";
+                                    } else {
+                                        echo "<option value='{$value->oid}'> {$value->CustomerCode} - {$value->CustomerName} </option>";
+                                    }
+                                }
+                                ?>
                             </select>
 
                         </fieldset>
                     </div>
                     <div class="col-3"> 
-                        <label> Manufaturing </label>
+                        <label> Produce Code </label>
                         <fieldset class="form-group position-relative">
-
-                            <select class="form-control  form-control-xs input-sm" name="Manufaturing">
-                                <option>BOI</option>
-                            </select>
+                            <input type="text" name="productCode" class="form-control" placeholder="Produce Code" value="<?= isset($_GET['productCode']) ? $_GET['productCode'] : '' ?>"/>
 
                         </fieldset>
                     </div>
                     <div class="col-3"> 
-                        <label> Search</label>
+                        <label> Produce name </label>
                         <fieldset class="form-group position-relative">
-                            <button class="btn btn-primary btn-sm">Search</button>
+                            <input type="text" name="productName" class="form-control" placeholder="Produce name" value="<?= isset($_GET['productName']) ? $_GET['productName'] : '' ?>"/>
+
                         </fieldset>
                     </div>
+
                 </div> 
-
+                <div class="text-right" style="padding-top: 20px;">
+                    <button class="btn btn-primary  "><i class="ft-search"></i> Search</button>
+                </div>
             </form>
         </div>
 
@@ -110,6 +109,7 @@
                             <th>#</th>
                             <th>Customers</th>
                             <th>Product Type</th>
+                            <th>Product Code</th> 
                             <th>Product Name</th> 
                             <th>Factory Type</th>
                             <th>Remark</th>
@@ -132,6 +132,7 @@
                                     <td><?= $i++ ?></td>
                                     <td><?= $value->CustomerName ?></td>
                                     <td><?= $value->orderProductTypeName ?></td>
+                                    <td><?= $value->ProductCode ?></td> 
                                     <td><?= $value->ProductName ?></td> 
                                     <td><?= $value->FactoryTypeName ?></td>
                                     <td><?= $value->Remark ?></td>

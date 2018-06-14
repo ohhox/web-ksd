@@ -14,12 +14,39 @@ class masterdata extends Controller {
 
     public function l($table = "") {
         $this->pageTiitle = "Manage Master Data ";
-        $this->dataid = "";
+        $this->dataid;
+        $this->count = 0;
+
+        $this->master = $tableData = $this->fn->REF[$table];
+        $this->limit = $limit = 30;
+        $this->page = $page = (isset($_GET['p']) ? $_GET['p'] : 1) - 1;
+
+        $where = "";
+        if (isset($_GET['search'])) {
+            foreach ($_GET['search'] AS $key => $value) {
+                if (!empty($value)) {
+                    if (empty($where)) {
+                        $where = " WHERE $key LIKE '%$value%' ";
+                    } else {
+                          $where .= " AND $key LIKE '%$value%' ";
+                    }
+                }
+            }
+        }
+
+        $row_start = $page * $limit;
+        $row_end = $row_start + $limit;
         if (!empty($table)) {
             $this->dataid = $table;
             $this->pageTiitle = "Manage Master Data : " . $table;
             $model = new Model();
-            $this->data = $model->query("SELECT * FROM  $table");
+            $sql = " SELECT c.* FROM (
+                    SELECT ROW_NUMBER() OVER(ORDER BY {$tableData['pk']}) AS RowID,*  FROM $table $where
+                ) AS c  
+                WHERE c.RowID > $row_start AND c.RowID <= $row_end ";
+            $this->data = $model->query($sql);
+
+            $this->count = $model->query('SELECT COUNT(*) AS count FROM ' . $table);
         }
         $this->view('masterData/masterList');
     }
@@ -29,12 +56,12 @@ class masterdata extends Controller {
             $model = new Model();
             $model->table = $table;
             $data = $_POST;
-            if($table == 'Units'){
-              $data['UnitOID']   = uniqid();
+            if ($table == 'Units') {
+                $data['UnitOID'] = uniqid();
             }
-            echo strlen( $data['UnitOID'] );
+            echo strlen($data['UnitOID']);
             pshow($data);
-            
+
             $model->__setMultiple($data);
             $model->create();
             //     Go(URL . "masterdata/l/$table");
