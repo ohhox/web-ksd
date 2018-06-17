@@ -218,7 +218,7 @@
                     <label>
                         OrderQty <i class="icon-info text-danger" title="required"></i>
                     </label>
-                    <input type="number" min="0" name="OrderQty" component="input" class="form-control" value="<?= isset($this->data['Myorder']) ? $this->data['Myorder']->OrderQty : '0' ?>" required/>
+                    <input type="number" min="0" name="OrderQty" id="OrderQty" component="input" class="form-control" value="<?= isset($this->data['Myorder']) ? $this->data['Myorder']->OrderQty : '0' ?>" required/>
                 </div>
                 <div class=" form-group col-md-12">
                     <label>

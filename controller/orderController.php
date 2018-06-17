@@ -12,7 +12,14 @@ class order extends Controller {
 
     public function index() {
 
-        $this->data = $this->model->getOrder();
+        
+        $this->limit = $limit = 30;
+        $this->page = $page = (isset($_GET['p']) ? $_GET['p'] : 1) - 1;
+        $row_start = $page * $limit;
+        $row_end = $row_start + $limit;
+        
+        $this->data = $this->model->getOrder($row_start,$row_end);
+
         $this->pageTiitle = "Order List";
         $this->customer = $this->model->_getTable('customers');
 

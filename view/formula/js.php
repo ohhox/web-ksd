@@ -108,6 +108,7 @@
                     let res = $.parseJSON(data);
                     if (res.succes) {
                         swal("บันทึกข้อมูลเรียบร้อย", "บันทึกข้อมูล Revision เรียบร้อยแล้ว", "success");
+                        formReset();
                     }
                 }
             });

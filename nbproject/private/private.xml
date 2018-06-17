@@ -3,13 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/dev/htdocs/web-ksd/controller/apiController.php</file>
-            <file>file:/C:/dev/htdocs/web-ksd/config.php</file>
-            <file>file:/C:/dev/htdocs/web-ksd/model/productFormulaDetail_model.php</file>
-            <file>file:/C:/dev/htdocs/web-ksd/controller/orderController.php</file>
-            <file>file:/C:/dev/htdocs/web-ksd/model/orders_model.php</file>
-            <file>file:/C:/dev/htdocs/web-ksd/controller/shipmentController.php</file>
-            <file>file:/C:/dev/htdocs/web-ksd/model/productFormulas_model.php</file>
+            <file>file:/C:/dev/htdocs/web-ksd/system/_functionx.php</file>
+            <file>file:/C:/dev/htdocs/web-ksd/.htaccess</file>
+            <file>file:/C:/dev/htdocs/web-ksd/system/Model.php</file>
+            <file>file:/C:/dev/htdocs/web-ksd/controller/masterdataController.php</file>
+            <file>file:/C:/dev/htdocs/web-ksd/view/masterData/masterList.php</file>
+            <file>file:/C:/dev/htdocs/web-ksd/view/masterData/index_js.php</file>
         </group>
     </open-files>
 </project-private>

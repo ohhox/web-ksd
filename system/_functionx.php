@@ -15,19 +15,22 @@ class functiomx {
                     'field_Description' => 'Customer Code',
                     'field_type' => 'input',
                     'required' => 'required',
-                    'comment' => ''
+                    'comment' => '',
+                    'checkExit' => true
                 ),
                 '2' => array(
                     'field_name' => "CustomerName",
                     'field_Description' => 'Customer Name',
                     'field_type' => 'input',
-                    'required' => 'required'
+                    'required' => 'required',
+                    'checkExit' => true
                 ),
                 '3' => array(
                     'field_name' => "ShortName",
                     'field_Description' => 'Short Name',
                     'field_type' => 'input',
-                    'required' => ''
+                    'required' => '',
+                    'checkExit' => 'false',
                 ),
             )
         ),
@@ -43,13 +46,15 @@ class functiomx {
                     'field_Description' => 'Factory Type Code',
                     'field_type' => 'input',
                     'required' => 'required',
-                    'comment' => ''
+                    'comment' => '',
+                    'checkExit' => true
                 ),
                 '2' => array(
                     'field_name' => "FactoryTypeName",
                     'field_Description' => 'Factory Type Name',
                     'field_type' => 'input',
-                    'required' => 'required'
+                    'required' => 'required',
+                    'checkExit' => true
                 )
             )
         ),
@@ -65,13 +70,15 @@ class functiomx {
                     'field_Description' => 'Holder Code',
                     'field_type' => 'input',
                     'required' => 'required',
-                    'comment' => ''
+                    'comment' => '',
+                    'checkExit' => true
                 ),
                 '2' => array(
                     'field_name' => "HolderName",
                     'field_Description' => 'Holder Name',
                     'field_type' => 'input',
-                    'required' => 'required'
+                    'required' => 'required',
+                    'checkExit' => true
                 )
             )
         ),
@@ -87,12 +94,14 @@ class functiomx {
                     'field_Description' => 'Order Product Type Code',
                     'field_type' => 'input',
                     'required' => 'required',
+                    'checkExit' => true
                 ),
                 '2' => array(
                     'field_name' => "OrderProductTypeName",
                     'field_Description' => 'Order Product Type Name',
                     'field_type' => 'input',
-                    'required' => 'required'
+                    'required' => 'required',
+                    'checkExit' => true
                 )
             )
         ),
@@ -108,18 +117,21 @@ class functiomx {
                     'field_Description' => 'Product Code',
                     'field_type' => 'input',
                     'required' => 'required',
+                    'checkExit' => true
                 ),
                 '2' => array(
                     'field_name' => "ProdName1",
                     'field_Description' => 'Product Name',
                     'field_type' => 'input',
-                    'required' => 'required'
+                    'required' => 'required',
+                    'checkExit' => true
                 ),
                 '3' => array(
                     'field_name' => "ProdShortName",
                     'field_Description' => 'Short Name',
                     'field_type' => 'input',
-                    'required' => 'required'
+                    'required' => 'required',
+                    'checkExit' => true
                 )
             )
         ),
@@ -135,12 +147,14 @@ class functiomx {
                     'field_Description' => 'Srick Code',
                     'field_type' => 'input',
                     'required' => 'required',
+                    'checkExit' => true
                 ),
                 '2' => array(
                     'field_name' => "SrickName",
                     'field_Description' => 'Srick Name',
                     'field_type' => 'input',
-                    'required' => 'required'
+                    'required' => 'required',
+                    'checkExit' => true
                 )
             )
         ),
@@ -156,12 +170,14 @@ class functiomx {
                     'field_Description' => 'Tray Code',
                     'field_type' => 'input',
                     'required' => 'required',
+                    'checkExit' => true
                 ),
                 '2' => array(
                     'field_name' => "TrayName",
                     'field_Description' => 'Tray Name',
                     'field_type' => 'input',
-                    'required' => 'required'
+                    'required' => 'required',
+                    'checkExit' => true
                 )
             )
         ),
@@ -176,25 +192,28 @@ class functiomx {
                     'field_name' => "UnitNameFullThai",
                     'field_Description' => 'Unit Name Thai',
                     'field_type' => 'input',
-                    'required' => 'required'
+                    'required' => 'required',
+                    'checkExit' => true
                 ),
                 '2' => array(
                     'field_name' => "UnitNameFullEng",
                     'field_Description' => 'Unit Name Eng',
                     'field_type' => 'input',
-                    'required' => 'required'
+                    'required' => 'required',
+                    'checkExit' => true
                 ),
-                 '3' => array(
+                '3' => array(
                     'field_name' => "UnitNameShortThai",
                     'field_Description' => 'Unit Short Name Thai',
                     'field_type' => 'input',
                     'required' => 'required'
                 ),
-                 '4' => array(
+                '4' => array(
                     'field_name' => "UnitNameShortEng",
                     'field_Description' => 'Unit Short Name Eng',
                     'field_type' => 'input',
-                    'required' => 'required'
+                    'required' => 'required',
+                    'checkExit' => true
                 )
             )
         )

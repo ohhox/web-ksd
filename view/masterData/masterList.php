@@ -1,3 +1,6 @@
+<?php
+$page = $this->page + 1;
+?>
 <div class="card" >
     <div class="card-header">
         <h4 class="card-title"> SELECT TAB</h4>
@@ -30,72 +33,67 @@
             </ul>
         </div>
     </div>
-     <?php
-            if (!empty($this->dataid)) {
-                ?>
-</div>
+    <?php
+    if (!empty($this->dataid)) {
+        ?>
+    </div>
 
-<div class="card" >
+    <div class="card" >
 
-    <div class="card-content">
-        <div class="card-header">
-            <h4 class="card-title"> <i class="ft-search"></i> Filter Options for  <?= isset($this->dataid) ? ' : ' . $this->dataid : '' ?></h4>
-            <div class="heading-elements">
-                <ul class="list-inline mb-0"> 
-                    <li><a data-action="expand"><i class="ft-maximize"></i></a></li> 
-                </ul>
+        <div class="card-content">
+            <div class="card-header">
+                <h4 class="card-title"> <i class="ft-search"></i> Filter Options for  <?= isset($this->dataid) ? ' : ' . $this->dataid : '' ?></h4>
+                <div class="heading-elements">
+                    <ul class="list-inline mb-0"> 
+                        <li><a data-action="expand"><i class="ft-maximize"></i></a></li> 
+                    </ul>
+                </div>
             </div>
-        </div>
-        <div class="card-body">
+            <div class="card-body">
 
-            <form class="form" >
-                <div class=" row  justify-content-md-center">
-                    <?php
-                    foreach ($this->master['field'] as $key => $value) {
-                        ?>
-                        <div class="col-md-3">
-                            <label><?= $value['field_Description'] ?></label>
-                            <input type="text" class="form-control form-control-sm" value="<?= isset($_GET['search'][$value['field_name']]) ? $_GET['search'][$value['field_name']] : '' ?>" name="search[<?= $value['field_name'] ?>]" placeholder="<?= $value['field_Description'] ?>">
+                <form class="form" >
+                    <div class=" row  justify-content-md-center">
+
+                        <div class="col-md-12">
+                            <label> Search </label>
+                            <input type="text" class="form-control form-control-sm" value="<?= isset($_GET['search']['text']) ? $_GET['search']['text'] : '' ?>" name="search[text]" placeholder="Search">
                         </div>
-                        <?php
-                    }
-                    ?>
-                    <div class="clear"></div>
-                </div>
-                <div class="text-right" style="padding-top: 20px;">
-                    <a  href="?" class="btn btn-danger  text-white"><i class="ft-refresh-cw"></i> Reset</a> 
-                    <button type="submit" class="btn btn-primary"><i class="ft-search"></i> Search</button>
-                </div>
-            </form>
+
+                        <div class="clear"></div>
+                    </div>
+                    <div class="text-right" style="padding-top: 20px;">
+                        <a  href="?" class="btn btn-danger  text-white"><i class="ft-refresh-cw"></i> Reset</a> 
+                        <button type="submit" class="btn btn-primary"><i class="ft-search"></i> Search</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
-</div>
-
-<div class="card" >
-
-    <div class="card-content">
-        <div class="card-header">
-            <h4 class="card-title"> Master Data  <?= isset($this->dataid) ? ' : ' . $this->dataid : '' ?></h4>
-            <div class="heading-elements">
-                <ul class="list-inline mb-0"> 
-                    <li><a data-action="expand"><i class="ft-maximize"></i></a></li> 
-                </ul>
-            </div>
-        </div>
-        <div class="card-body">
-           
-
-                <div id="masterData">
-                    <div style="padding: 20px;">
-                        <h1 class="pageheader">
-                            <?php
+<div style="text-align: right;padding-bottom: 10px;">
+   <?php
                             if ($this->master['manage']) {
                                 ?>
-                                <button type="button" class="btn btn-info pull-right" id="openForm">
-                                    Create New <?= $this->dataid ?>  <i class="ft-plus"></i> </button>         
+                                <button type="button" class="btn btn-info " id="openForm">
+                                    Create New <?= $this->dataid ?>  <i class="ft-plus"></i> 
+                                </button>         
                             <?php } ?>
-                            <div class="clear"></div>
-                        </h1>
+    </div>
+    <div class="card" >
+
+        <div class="card-content">
+            <div class="card-header">
+                <h4 class="card-title"> Master Data  <?= isset($this->dataid) ? ' : ' . $this->dataid : '' ?></h4>
+                <div class="heading-elements">
+                    <ul class="list-inline mb-0"> 
+                        <li><a data-action="expand"><i class="ft-maximize"></i></a></li> 
+                    </ul>
+                </div>
+            </div>
+            <div class="card-body">
+
+
+                <div id="masterData">
+                    <div style="padding: 20px;"> 
                         <div>
 
 
@@ -119,7 +117,7 @@
                                     foreach ($this->data as $key => $value) {
                                         ?>
                                         <tr>
-                                            <td><?= $i++ ?></td>
+                                            <td><?= ($this->page * $this->limit) + $i++ ?></td>
                                             <?php
                                             foreach ($table['field'] as $k => $v) {
                                                 $field_name = $v['field_name'];
@@ -151,7 +149,7 @@
                             <?php
                             $allPage = 0;
                             $allItem = 0;
-                            $page = $this->page + 1;
+
                             if (isset($this->count) && !empty($this->count)) {
                                 $allPage = ceil($this->count[0]->count / $this->limit);
                                 $allItem = $this->count[0]->count;
@@ -163,7 +161,7 @@
 
                             <?php
                             $url = $_GET;
-                          
+
                             unset($url['url']);
 //                              pshow($url);
 //                            exit();
@@ -172,7 +170,7 @@
                             if ($page > 1) {
                                 ?>
                                 <li class="page-item">
-                                    <a class="page-link" href="?<?=$url?>&p=<?=$page-1?>" aria-label="Previous">
+                                    <a class="page-link" href="?<?= $url ?>&p=<?= $page - 1 ?>" aria-label="Previous">
                                         <span aria-hidden="true">« Prev</span>
                                         <span class="sr-only">Previous</span>
                                     </a>
@@ -201,7 +199,7 @@
                             if ($page < $allPage) {
                                 ?>
                                 <li class="page-item">
-                                    <a class="page-link" href="?<?=$url?>&p=<?=$page+1?>" aria-label="Next">
+                                    <a class="page-link" href="?<?= $url ?>&p=<?= $page + 1 ?>" aria-label="Next">
                                         <span aria-hidden="true">Next »</span>
                                         <span class="sr-only">Next</span>
                                     </a>

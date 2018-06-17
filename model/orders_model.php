@@ -8,23 +8,54 @@ class orders_model extends Model {
         $this->pk = "oid";
     }
 
-    public function getOrder() {
+    public function soft($text) {
+        switch ($text) {
+            case 'CustomerName':
+                $text = 'c.ShortName';
+                break;
+            case 'orderProductTypeName':
+                $text = 'orderProductTypeName';
+                break;
+        }
+    }
 
+    public function getOrder($start = 0, $end = 30) {
+        $data = array();
         $where = "";
+
+        $soft = isset($_GET['soft']) ? $_GET['soft'] : 'o.oid';
+        $order = isset($_GET['d']) ? $_GET['d'] : 'ASC';
+
+
         if (isset($_GET)) {
             if (isset($_GET['Customer']) && $_GET['Customer'] != 'all') {
                 $where .= " AND o.CustomerOid='{$_GET['Customer']}' ";
             }
-            if (isset($_GET['productCode'])  && !empty($_GET['productCode']) ) {
-                $where .= " AND o.ProductCode LIKE '%{$_GET['productCode']}%' ";
-            }
-            if (isset($_GET['productName']) && !empty($_GET['productName'])) {
-                $where .= " AND p.ProdName1 LIKE '%{$_GET['productName']}%' ";
+            if (isset($_GET['Product']) && !empty($_GET['Product'])) {
+                $where .= " AND( o.ProductCode LIKE '%{$_GET['Product']}%' OR  p.ProdName1 LIKE '%{$_GET['Product']}%') ";
             }
         }
 
-          $sql = "
-            SELECT o.oid,o.ProductCode,Remark,Revision,OrderQty,c.ShortName AS CustomerName,FactoryTypeName,Holdername,p.ProdName1 AS ProductName,orderProductTypeName,SrickName,UnitNameFullEng,TrayName 
+        $sql = "
+               SELECT c.* FROM (
+                    SELECT ROW_NUMBER() OVER(ORDER BY $soft $order) AS RowID,
+            o.oid,o.ProductCode,Remark,Revision,OrderQty,c.ShortName AS CustomerName,FactoryTypeName,Holdername,p.ProdName1 AS ProductName,orderProductTypeName,SrickName,UnitNameFullEng,TrayName 
+                    FROM Orders AS o 
+                    LEFT JOIN Customers AS c ON c.oid = o.CustomerOid 
+                    LEFT JOIN FactoryTypes AS f ON f.oid = o.FactoryTypeOid 
+                    LEFT JOIN Holders AS h ON h.oid = o.HolderOid 
+                    LEFT JOIN Products AS p ON p.ProdOID = o.ProductOid 
+                    LEFT JOIN OrderProductTypes AS pt ON pt.oid = o.orderProductTypeOid 
+                    LEFT JOIN Sricks AS s ON s.oid = o.SrickOid 
+                    LEFT JOIN Units AS u ON u.UnitOID = o.UnitOid 
+                    LEFT JOIN Trays AS t ON t.oid = o.TrayOid 
+                    WHERE o.isDelete='0' $where ) AS c  
+                WHERE c.RowID > $start AND c.RowID <= $end 
+                    ";
+        $data['list'] = $this->query($sql);
+
+        $sql = "
+            SELECT  count(*) as count
                     FROM Orders AS o 
                     LEFT JOIN Customers AS c ON c.oid = o.CustomerOid 
                     LEFT JOIN FactoryTypes AS f ON f.oid = o.FactoryTypeOid 
@@ -36,7 +67,13 @@ class orders_model extends Model {
                     LEFT JOIN Trays AS t ON t.oid = o.TrayOid 
                     WHERE o.isDelete='0' $where
                     ";
-        return $this->query($sql);
+        $data['count'] = $this->query($sql);
+        if (empty($data['count'])) {
+            $data['count'] = 0;
+        } else {
+            $data['count'] = $data['count'][0]->count;
+        }
+        return $data;
     }
 
     public function removeOrder($orderId) {

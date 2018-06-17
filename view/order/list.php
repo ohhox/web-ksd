@@ -1,3 +1,13 @@
+<?php
+$page = $this->page + 1;
+$url = $_GET;
+unset($url['url']);
+unset($url['p']);
+unset($url['soft']);
+unset($url['d']);
+$url = http_build_query($url);
+$order = isset($_GET['d']) ? (($_GET['d'] == 'ASC') ? 'DESC' : 'ASC') : 'ASC';
+?>
 <div class="card">
     <div class="card-header">
         <h4 class="card-title">Order Filter Options.</h4>
@@ -32,22 +42,17 @@
                         </fieldset>
                     </div>
                     <div class="col-3"> 
-                        <label> Produce Code </label>
+                        <label> Product </label>
                         <fieldset class="form-group position-relative">
-                            <input type="text" name="productCode" class="form-control" placeholder="Produce Code" value="<?= isset($_GET['productCode']) ? $_GET['productCode'] : '' ?>"/>
+                            <input type="text" name="Product" class="form-control" placeholder="Filter Produce code & name" value="<?= isset($_GET['Product']) ? $_GET['Product'] : '' ?>"/>
 
                         </fieldset>
                     </div>
-                    <div class="col-3"> 
-                        <label> Produce name </label>
-                        <fieldset class="form-group position-relative">
-                            <input type="text" name="productName" class="form-control" placeholder="Produce name" value="<?= isset($_GET['productName']) ? $_GET['productName'] : '' ?>"/>
 
-                        </fieldset>
-                    </div>
 
                 </div> 
                 <div class="text-right" style="padding-top: 20px;">
+                    <a  href="?" class="btn btn-danger  text-white"><i class="ft-refresh-cw"></i> Reset</a> 
                     <button class="btn btn-primary  "><i class="ft-search"></i> Search</button>
                 </div>
             </form>
@@ -107,18 +112,90 @@
                     <thead>
                         <tr>
                             <th>#</th>
-                            <th>Customers</th>
-                            <th>Product Type</th>
-                            <th>Product Code</th> 
-                            <th>Product Name</th> 
-                            <th>Factory Type</th>
-                            <th>Remark</th>
-                            <th>Revision</th>
-                            <th>Stick</th>
-                            <th>Holder</th>
-                            <th>Tray</th>
-                            <th>Order Qty.</th>
-                            <th>Unit</th>
+                            <th>
+                                <a class="text-dark" href="?<?= $url ?>&soft=c.ShortName&d=<?= $order ?>">Customers 
+                                    <?php
+                                    echo isset($_GET['soft']) && $_GET['soft'] == 'c.ShortName' ? ($_GET['d'] == 'ASC') ? "<i class='ft-arrow-down'></i>" : "<i class='ft-arrow-up'></i>" : ""
+                                    ?> 
+                                </a>
+                            </th>
+                            <th>
+                                <a class="text-dark" href="?<?= $url ?>&soft=orderProductTypeName&d=<?= $order ?>">Product Type 
+                                    <?php
+                                    echo isset($_GET['soft']) && $_GET['soft'] == 'orderProductTypeName' ? ($_GET['d'] == 'ASC') ? "<i class='ft-arrow-down'></i>" : "<i class='ft-arrow-up'></i>" : ""
+                                    ?> 
+                                </a>
+                            </th>
+                            <th>
+                                <a class="text-dark" href="?<?= $url ?>&soft=ProductCode&d=<?= $order ?>">Product Code 
+                                    <?php
+                                    echo isset($_GET['soft']) && $_GET['soft'] == 'ProductCode' ? ($_GET['d'] == 'ASC') ? "<i class='ft-arrow-down'></i>" : "<i class='ft-arrow-up'></i>" : ""
+                                    ?> 
+                                </a> 
+                            </th> 
+                            <th>
+                                <a class="text-dark" href="?<?= $url ?>&soft=p.ProdName1&d=<?= $order ?>">Product Name 
+                                    <?php
+                                    echo isset($_GET['soft']) && $_GET['soft'] == 'p.ProdName1' ? ($_GET['d'] == 'ASC') ? "<i class='ft-arrow-down'></i>" : "<i class='ft-arrow-up'></i>" : ""
+                                    ?> 
+                                </a> 
+                            </th> 
+                            <th> 
+                                <a class="text-dark" href="?<?= $url ?>&soft=FactoryTypeName&d=<?= $order ?>">Factory Type 
+                                    <?php
+                                    echo isset($_GET['soft']) && $_GET['soft'] == 'FactoryTypeName' ? ($_GET['d'] == 'ASC') ? "<i class='ft-arrow-down'></i>" : "<i class='ft-arrow-up'></i>" : ""
+                                    ?> 
+                                </a> 
+                            </th>
+                            <th> 
+                                <a class="text-dark" href="?<?= $url ?>&soft=Remark&d=<?= $order ?>">Remark
+                                    <?php
+                                    echo isset($_GET['soft']) && $_GET['soft'] == 'Remark' ? ($_GET['d'] == 'ASC') ? "<i class='ft-arrow-down'></i>" : "<i class='ft-arrow-up'></i>" : ""
+                                    ?> 
+                                </a> 
+                            </th>
+                            <th>
+                                <a class="text-dark" href="?<?= $url ?>&soft=Revision&d=<?= $order ?>">Revision
+                                    <?php
+                                    echo isset($_GET['soft']) && $_GET['soft'] == 'Revision' ? ($_GET['d'] == 'ASC') ? "<i class='ft-arrow-down'></i>" : "<i class='ft-arrow-up'></i>" : ""
+                                    ?> 
+                                </a> 
+                            </th>
+                            <th>
+                                <a class="text-dark" href="?<?= $url ?>&soft=SrickName&d=<?= $order ?>">Stick
+                                    <?php
+                                    echo isset($_GET['soft']) && $_GET['soft'] == 'SrickName' ? ($_GET['d'] == 'ASC') ? "<i class='ft-arrow-down'></i>" : "<i class='ft-arrow-up'></i>" : ""
+                                    ?> 
+                                </a> 
+                            </th> 
+                            <th>  
+                                <a class="text-dark" href="?<?= $url ?>&soft=Holdername&d=<?= $order ?>">Holder
+                                    <?php
+                                    echo isset($_GET['soft']) && $_GET['soft'] == 'Holdername' ? ($_GET['d'] == 'ASC') ? "<i class='ft-arrow-down'></i>" : "<i class='ft-arrow-up'></i>" : ""
+                                    ?> 
+                                </a> 
+                            </th>
+                            <th>
+                                <a class="text-dark" href="?<?= $url ?>&soft=TrayName&d=<?= $order ?>">Tray
+                                    <?php
+                                    echo isset($_GET['soft']) && $_GET['soft'] == 'TrayName' ? ($_GET['d'] == 'ASC') ? "<i class='ft-arrow-down'></i>" : "<i class='ft-arrow-up'></i>" : ""
+                                    ?> 
+                                </a>
+                            </th>
+                            <th> 
+                                <a class="text-dark" href="?<?= $url ?>&soft=OrderQty&d=<?= $order ?>"> Order Qty.
+                                    <?php
+                                    echo isset($_GET['soft']) && $_GET['soft'] == 'OrderQty' ? ($_GET['d'] == 'ASC') ? "<i class='ft-arrow-down'></i>" : "<i class='ft-arrow-up'></i>" : ""
+                                    ?> 
+                                </a>
+                            </th>
+                            <th>
+                                <a class="text-dark" href="?<?= $url ?>&soft=UnitNameFullEng&d=<?= $order ?>"> Unit
+                                    <?php
+                                    echo isset($_GET['soft']) && $_GET['soft'] == 'UnitNameFullEng' ? ($_GET['d'] == 'ASC') ? "<i class='ft-arrow-down'></i>" : "<i class='ft-arrow-up'></i>" : ""
+                                    ?> 
+                                </a>
+                            </th>
                             <th >Manage</th>
                         </tr>
                     </thead>
@@ -126,10 +203,10 @@
                         <?php
                         if (!empty($this->data)) {
                             $i = 1;
-                            foreach ($this->data as $key => $value) {
+                            foreach ($this->data['list'] as $key => $value) {
                                 ?>
                                 <tr key={key}>
-                                    <td><?= $i++ ?></td>
+                                    <td><?= ($this->page * $this->limit) + $i++ ?></td>
                                     <td><?= $value->CustomerName ?></td>
                                     <td><?= $value->orderProductTypeName ?></td>
                                     <td><?= $value->ProductCode ?></td> 
@@ -154,14 +231,75 @@
 
                     </tbody>
                 </table>
+
             </div>
         </div>
 
 
 
-        <div id="TableFooter">
-            <label> All : <?= count($this->data) ?> </label>
-            <label> Page : 1 / 1 </label>      
+        <div >
+            <?php
+            ?>
+            <nav aria-label="Page navigation">
+                <div class="text-center">
+                    <?php
+                    $allPage = 0;
+                    $allItem = 0;
+                    $url = $_GET;
+                    unset($url['url']);
+                    unset($url['p']);
+                    $url = http_build_query($url);
+
+                    if (isset($this->data['count']) && !empty($this->data['count'])) {
+                        $allPage = ceil($this->data['count'] / $this->limit);
+                        $allItem = $this->data['count'];
+                    }
+                    echo 'all : ' . number_format($allItem) . " item  : Page $page of $allPage  ({$this->limit}/page)";
+                    ?>
+                </div>
+                <ul class="pagination justify-content-center pagination-separate pagination-flat">
+
+                    <?php
+                    if ($page > 1) {
+                        ?>
+                        <li class="page-item">
+                            <a class="page-link" href="?<?= $url ?>&p=<?= $page - 1 ?>" aria-label="Previous">
+                                <span aria-hidden="true">« Prev</span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                        </li>
+                        <?php
+                    }
+
+                    for ($index = 1; $index <= $allPage; $index++) {
+                        $minshow = $page - 5;
+                        $maxshow = $page + 5;
+                        $maxshow = ($maxshow > $allPage ? $allPage : $maxshow);
+                        $minshow = ($minshow < 0 ? 0 : $minshow);
+                        if ($index >= ($minshow) && $index <= $maxshow) {
+                            $active = "";
+                            if ($page == $index) {
+                                $active = 'active';
+                            }
+                            ?>
+                            <li class="page-item <?= $active ?>"><a class="page-link"  href="?<?= $url ?>&p=<?= $index ?>"><?= $index ?></a></li>
+                            <?php
+                        }
+                    }
+                    ?>
+
+                    <?php
+                    if ($page < $allPage) {
+                        ?>
+                        <li class="page-item">
+                            <a class="page-link" href="?<?= $url ?>&p=<?= $page + 1 ?>" aria-label="Next">
+                                <span aria-hidden="true">Next »</span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </li>
+                    <?php } ?>
+                </ul>
+            </nav>   
         </div>
 
     </div>

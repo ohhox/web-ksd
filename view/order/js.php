@@ -10,23 +10,24 @@
     }
     $(window).ready(function () {
         $("#p2yForm").on('submit', function (e) {
-
             if ($('#CustomerOid').val() == "0") {
                 e.preventDefault();
                 formalert(" Please Choose Customer.");
-            } else
-            if ($('#ProductOid').val() == "") {
+            } else if ($('#ProductOid').val() == "") {
                 e.preventDefault();
                 formalert(" Please Select Product.");
-            } else if ($('#FactoryTypeOid').val() == "") {
+            } else if ($('#FactoryTypeOid').val() == "0") {
                 e.preventDefault();
                 formalert(" Please Select Factory.");
-            } else if ($('#UnitOid').val() == "") {
+            } else if ($('#UnitOid').val() == "0") {
                 e.preventDefault();
                 formalert(" Please Select Unit.");
-            } else if ($('#UnitOid').val() == "") {
+            } else if ($('#UnitOid').val() == "0") {
                 e.preventDefault();
                 formalert(" Please Select Unit.");
+            } else if ($('#OrderQty').val() == "") {
+                e.preventDefault();
+                formalert(" Please Select Order Qty.");
             }
         });
 
